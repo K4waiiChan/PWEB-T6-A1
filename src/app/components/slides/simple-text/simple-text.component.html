@@ -1,1 +1,5 @@
-<div class="simple-text" cdkDragBoundary=".slide-preview" cdkDrag>Simple Text Component Works</div>
+<div class="simple-text"
+  [ngStyle]="{ 'font-size': getSize(), 'font-style': getStyle(), 'font-weight': getWeight(), 'text-decoration': getDecoration(), 'font-family': getFamily() }"
+  cdkDragBoundary=".slide-preview" cdkDrag>
+  {{content.content}}
+</div>
