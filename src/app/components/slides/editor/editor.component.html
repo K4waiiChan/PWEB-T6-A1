@@ -1,3 +1,6 @@
+<div class="element-form">
+  <app-text-form [content]="selectedText" (contentChanged)="contentChanged($event)"></app-text-form>
+</div>
 <mat-card class="slide-preview">
-  <app-simple-text></app-simple-text>
+  <app-simple-text [content]="selectedText"></app-simple-text>
 </mat-card>

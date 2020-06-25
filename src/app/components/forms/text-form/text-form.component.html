@@ -1,0 +1,35 @@
+<form [formGroup]="contentGroup">
+  <mat-form-field class="content">
+    <mat-label>Contenido</mat-label>
+    <textarea 
+      matInput
+      cdkTextareaAutosize
+      #autosize="cdkTextareaAutosize"
+      cdkAutosizeMinRows="1"
+      cdkAutosizeMaxRows="8"
+      placeholder="Escribe el contenido aqui"
+      formControlName="content"
+      (change)="emitContentChange()">
+    </textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Tamaño de Letra</mat-label>
+    <mat-select formControlName="textSize" (valueChange)="emitContentChange()">
+      <mat-option *ngFor="let size of availableSizes" [value]="size">
+        {{size}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  &nbsp;  &nbsp;  &nbsp;
+  <mat-button-toggle-group multiple>
+    <mat-button-toggle (click)="toggleBoldWeight()" [checked]="boldActivated">
+      <mat-icon>format_bold</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle (click)="toggleItalicStyle()" [checked]="italicActivated">
+      <mat-icon>format_italic</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle (click)="toggleUnderlineDecoration()" [checked]="underlineActivated">
+      <mat-icon>format_underline</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</form>
